@@ -1,0 +1,84 @@
+div.navbar,
+div.introduction,
+div.footer {
+    position: fixed;
+    width: 100%;
+    top: 0;
+}
+
+div.introduction.p {
+    float: left;
+}
+
+div.assignment {
+    position: absolute;
+    top: 50%;
+}
+
+div.navbar.li {
+    border: 1em;
+    border-radius: 5%;
+}
+
+div.portfolio,
+div.address,
+div.schedule {
+    border-right: rebeccapurple;
+    border-bottom: 3px solid #fff;
+}
+
+body {
+    background-image: url("../img/background.jpg");
+}
+
+footer {
+    background-image: url("../img/footer.jpg");
+}
+
+#picture {
+    width: 20em;
+    height: 20em;
+}
+
+@font-face {
+    font-family: "Space Grotesk";
+    src: url("../font/SpaceGrotesk-VariableFont_wght.ttf");
+}
+
+p {
+    font-family: "Space Grotesk", sans-serif;
+    line-height: 1.1em;
+    text-align: justify;
+}
+
+h1 {
+    letter-spacing: 0.1em;
+    text-shadow: 1em;
+    border-radius: 5%;
+    transition: all 0.3s ease-in-out;
+    text-transform: uppercase;
+}
+
+h1:hover {
+    transform: scale(1.1);
+}
+
+div.portfolio.p:first-of-type {
+    box-shadow: 4em;
+}
+
+p::first-letter {
+    font-style: italic;
+    font-size: larger;
+    ;
+}
+
+a {
+    text-decoration: none;
+}
+
+li,
+ul {
+    color: whitesmoke;
+    font-weight: 700;
+}
