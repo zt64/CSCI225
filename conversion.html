@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Unit Conversion Calculator</title>
+</head>
+
+<body>
+    <div>
+        <h1>Unit Conversion Calculator - Length</h1>
+        <div id="conversionForm">
+            <div>
+                <input id="input" type="number" step="0.01" name="value-i" placeholder="Enter a number">
+                <select id="unit" name="unit-i" required>
+                    <option value="m" selected>Meter</option>
+                    <option value="km">Kilometer</option>
+                    <option value="cm">Centimeter</option>
+                    <option value="mm">Millimeter</option>
+                    <option value="mi">Mile</option>
+                    <option value="yd">Yard</option>
+                    <option value="ft">Foot</option>
+                    <option value="in">Inch</option>
+                </select>
+                <label for="unit">to</label>
+            </div>
+
+            <div>
+                <input id="output" type="number" step="0.01" name="value-o" placeholder="Output">
+                <select id="outputUnit" name="unit-o" required>
+                    <option value="m" selected>Meter</option>
+                    <option value="km">Kilometer</option>
+                    <option value="cm">Centimeter</option>
+                    <option value="mm">Millimeter</option>
+                    <option value="mi">Mile</option>
+                    <option value="yd">Yard</option>
+                    <option value="ft">Foot</option>
+                    <option value="in">Inch</option>
+                </select>
+            </div>
+            <div>
+                <button id="reset" type="reset">Reset</button>
+                <button id="convert" type="submit">Convert</button>
+            </div>
+        </div>
+
+        <script>
+            const inputE = document.getElementById("input");
+            const outputE = document.getElementById("output");
+            const inputUnitE = document.getElementById("unit");
+            const outputUnitE = document.getElementById("outputUnit");
+
+            function updateOutputValues() {
+                outputE.value = convertUnitToUnit(parseFloat(inputE.value), inputUnitE.value, outputUnitE.value);
+            }
+
+            function updateInputValues() {
+                inputE.value = convertUnitToUnit(parseFloat(outputE.value), outputUnitE.value, inputUnitE.value);
+            }
+
+            inputE.addEventListener("input", updateOutputValues);
+            outputE.addEventListener("input", updateInputValues);
+            inputUnitE.addEventListener("change", updateOutputValues);
+            outputUnitE.addEventListener("change", updateInputValues);
+
+            function convertUnitToUnit(value, unit, targetUnit) {
+                let meters;
+
+                // If the units are the same, return the value
+                if (unit === targetUnit) return value;
+
+                switch (unit) {
+                    case "m":
+                        meters = value;
+                        break;
+                    case "km":
+                        meters = value * 1000;
+                        break;
+                    case "cm":
+                        meters = value / 100;
+                        break;
+                    case "mm":
+                        meters = value / 1000;
+                        break;
+                    case "mi":
+                        meters = value * 1609.34;
+                        break;
+                    case "yd":
+                        meters = value * 0.9144;
+                        break;
+                    case "ft":
+                        meters = value * 0.3048;
+                        break;
+                    case "in":
+                        meters = value * 0.0254;
+                        break;
+                    default:
+                        meters = value;
+                }
+
+                switch (targetUnit) {
+                    case "m":
+                        return meters;
+                    case "km":
+                        return meters / 1000;
+                    case "cm":
+                        return meters * 100;
+                    case "mm":
+                        return meters * 1000;
+                    case "mi":
+                        return meters / 1609.34;
+                    case "yd":
+                        return meters / 0.9144;
+                    case "ft":
+                        return meters / 0.3048;
+                    case "in":
+                        return meters / 0.0254;
+                    default:
+                        return meters;
+                }
+            }
+        </script>
+    </div>
+</body>
+
+</html>
