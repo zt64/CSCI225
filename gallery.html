@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Image Gallery</title>
+    <link rel="stylesheet" href="css/gallery.css">
+    <script src="js/gallery.js" defer></script>
+</head>
+
+<body>
+    <div id="content">
+        <img id="image" src="img/img1.jpg" alt="Image">
+        <button id="back" class="nav-button" type="button" onclick="back()">
+            <img src="img/arrow-sm-left-svgrepo-com.svg" alt="Back">
+        </button>
+        <button id="next" class="nav-button" type="button" onclick="next()">
+            <img src="img/arrow-sm-right-svgrepo-com.svg" alt="Next">
+        </button>
+
+        <p id="desc"></p>
+
+        <div id="nav-dots"></div>
+    </div>
+</body>
+
+</html>
